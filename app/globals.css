@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import "@fontsource/montserrat-alternates/600.css";
+@import "@fontsource/montserrat-alternates/800.css";
+@import "@fontsource/manrope/400.css";
+@import "@fontsource/manrope/600.css";
+@import "@fontsource/manrope/800.css";
+
+@theme {
+  --color-bg: #fff7fb;
+  --color-blush: #ffe4ef;
+  --color-rose: #ffc2da;
+  --color-wine: #e0186c;
+  --color-plum: #3a0d24;
+  --color-lilac: #b892ff;
+  --color-fg: #26111c;
+  --color-muted: #85677a;
+  --color-line: #f6d6e4;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat Alternates", "Manrope", sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--color-bg); color: var(--color-fg); -webkit-font-smoothing: antialiased; }
+
+@layer components {
+  .wrap { max-width: 1160px; margin-inline: auto; padding-inline: 20px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border-radius: 999px; padding: 1rem 1.7rem; font-weight: 800; transition: transform .2s, box-shadow .2s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-wine { background: linear-gradient(135deg, #ff3d8b, #e0186c); color: #fff; box-shadow: 0 14px 34px -12px rgba(224,24,108,.7); }
+  .btn-wine:hover { box-shadow: 0 18px 44px -10px rgba(224,24,108,.9); }
+  .h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.05; letter-spacing: -.02em; }
+  .grad-text { background: linear-gradient(90deg, #ff3d8b, #b892ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .blob { border-radius: 58% 42% 55% 45% / 50% 60% 40% 50%; }
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(-2deg); } }
+.float { animation: float 6s ease-in-out infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee { animation: marquee 30s linear infinite; }
+@keyframes morph { 0%, 100% { border-radius: 58% 42% 55% 45% / 50% 60% 40% 50%; } 50% { border-radius: 42% 58% 45% 55% / 60% 40% 60% 40%; } }
+.morph { animation: morph 10s ease-in-out infinite; }
